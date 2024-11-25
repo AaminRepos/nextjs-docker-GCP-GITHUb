@@ -54,9 +54,13 @@ docker run -dp 3000:3000 "Project"   > check local host 3000
 
 cd /“project”
 
-gcloud config set “project-name”    ie. main gcloug project name
+gcloud config set <project-id>
 
-gcloud artifacts repositories create “project-name”-docker-repo --repository-format=docker --location=us-west2 --description="Docker repository”
+gcloud artifacts repositories create aagency-docker-repo \
+  --repository-format=docker \
+  --location=us-west2 \
+  --description="Docker repository"
+
 
 gcloud artifacts repositories list location=us-west2
 
