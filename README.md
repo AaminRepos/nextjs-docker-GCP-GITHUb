@@ -11,12 +11,23 @@ Create file> Dockerfile
 
 cd /Dockerfile 
 
-FROM node:18-alpine 
-WORK /app
+FROM node:18-alpine
+
+# Set the working directory
+WORKDIR /app
+
+# Copy all files to the container
 COPY . .
- RUN npm install —omit=dev
+
+# Install dependencies, omitting dev dependencies
+RUN npm install --omit=dev
+
+# Build the application
 RUN npm run build
-CMD [“npm”,”start”]
+
+# Define the command to run the application
+CMD ["npm", "start"]
+
 
 
 cd/“project”
@@ -33,7 +44,7 @@ cd/“project”
 
 docker build -t “project-name” .
 
-docker run -dp 3000:3000 pocket-ai   > check local host 3000
+docker run -dp 3000:3000 "Project"   > check local host 3000
 
 …. with gcloud….
 
