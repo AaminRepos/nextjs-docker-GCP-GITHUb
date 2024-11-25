@@ -12,19 +12,19 @@ Create file> Dockerfile
 cd /Dockerfile 
 
 "FROM node:18-alpine
-# Install build tools (for node modules that need compilation)
+
 RUN apk add --no-cache python3 make g++
-# Set the working directory
+
 WORKDIR /app
-# Copy package.json and package-lock.json to the container
+
 COPY package*.json ./
-# Install all dependencies (including devDependencies for the build step)
+
 RUN npm install
-# Copy the rest of the application code
+
 COPY . .
-# Build the application
+
 RUN npm run build
-# Start the application
+
 CMD ["npm", "start"]"
 
 cd .dockerignore
