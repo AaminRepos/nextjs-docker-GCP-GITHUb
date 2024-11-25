@@ -13,22 +13,15 @@ cd /Dockerfile
 
 FROM node:18-alpine
 
-# Set the working directory
 WORKDIR /app
 
-# Copy all files to the container
 COPY . .
 
-# Install dependencies, omitting dev dependencies
 RUN npm install --omit=dev
 
-# Build the application
 RUN npm run build
 
-# Define the command to run the application
 CMD ["npm", "start"]
-
-
 
 cd/“project”
 
